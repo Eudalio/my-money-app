@@ -77,5 +77,5 @@ class ItemList extends Component {
     }
 }
 
-const mapDipatchToProps = dispatch => bindActionCreators({arrayInsert, arrayRemove}, dispatch)
-export default connect(null, mapDipatchToProps)(ItemList)
+const mapDispatchToProps = dispatch => bindActionCreators({arrayInsert, arrayRemove}, dispatch)
+export default connect(null, mapDispatchToProps)(ItemList)

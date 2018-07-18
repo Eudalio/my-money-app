@@ -1,5 +1,4 @@
 import './auth.css'
-
 import React, { Component } from 'react'
 import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
@@ -20,6 +19,11 @@ class Auth extends Component {
 
     changeMode() {
         this.setState({ loginMode: !this.state.loginMode })
+    }
+
+    onSubmit(values) {
+        const { login, signup } = this.props
+        this.state.loginMode ? login(values) : signup(values)
     }
 
     render() {
@@ -60,6 +64,6 @@ class Auth extends Component {
     }
 }
 
-Auth = reduxForm({form: 'authForm'})(Auth)
+Auth = reduxForm({ form: 'authForm' })(Auth)
 const mapDispatchToProps = dispatch => bindActionCreators({ login, signup }, dispatch)
 export default connect(null, mapDispatchToProps)(Auth)
